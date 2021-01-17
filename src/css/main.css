@@ -1,0 +1,14 @@
+.main {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    display: inline;
+    margin: 5px;
+}
+
+.tabbar-item {
+    display: inline;
+    margin: 5px;
+}

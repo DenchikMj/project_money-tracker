@@ -1,0 +1,138 @@
+.categoryRow,
+.pageHeader,
+.titleRow,
+.addCategory {
+	width: 800px;
+	margin: 0 auto;
+	padding: 5px 0;
+	display: flex;
+	color: #737373;
+	font-size: 20px;		
+}
+.pageHeader{
+	justify-content: space-between;
+	align-items: center;
+}
+
+.pageTitle{
+	font-size: 30px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+.btnAdd,
+.btnAddNew{
+	display: block;
+	width: 115px;
+	padding: 10px 0;	
+	font-size: 20px;	
+	text-align: center;	
+	background-color: #80bfff;	
+	color: #f2f2f2;
+	border: none;
+  	border-radius: 10px;
+  	box-shadow: 0 4px #d9d9d9;
+  	cursor: pointer;
+}
+.btnAdd:hover{
+	background-color: #4da6ff; 
+}
+.btnAdd:active {
+  background-color: #4da6ff;
+  box-shadow: 0 1.5px #d9d9d9;
+  transform: translateY(2px);
+}
+.btnAddNew{
+	width: 200px;
+}
+
+.titleRow{
+	padding: 10px 0;
+	font-size: 24px;
+	border-top: 1px solid #737373;
+	border-bottom: 1px solid #737373;
+}
+.category,
+.categoryTitle{
+	width: 30%;
+	display: flex;
+	align-items: center;
+}
+
+.icon{
+	width: 40px;
+	height: 40px;
+	padding: 2px;
+	background-color: pink;
+	border-radius: 50%;
+}
+
+.name{	
+	padding-left: 20px;
+	text-align: left;
+	font-size: 20px;
+}
+
+.description,
+.descriptionTitle{
+	width: 50%;
+	padding-left: 20px;
+	text-align: left;
+	
+}
+
+.btnAction{	
+	border: none;
+	background-color: #fff;
+	font-size: 50px;
+	text-align: right;
+	cursor: pointer;
+
+}
+
+.action,
+.actionTitle{
+	width: 20%;
+	display: flex;
+	justify-content: flex-end;	
+}
+
+.menu{
+	width: 30px;
+	height: 30px;	
+}
+.menu:hover{
+	width: 40px;
+	height: 40px;
+	background-color: #f2f2f2;
+	outline: 1px solid #e6e6e6;
+}
+.menu:active{
+	background-color: #e6e6e6;
+	outline: 1px solid #d9d9d9;
+}
+
+.addCategory{
+	flex-direction: column;
+	align-items: center;
+}
+
+.inpName,
+.inpDescr,
+.inpType{
+	width: 250px;
+	padding: 10px;
+	font-size: 16px;
+	color: #737373;
+	border: 1px solid #737373;
+	box-sizing: border-box;
+}
+
+.inpName:focus,
+.inpDescr:focus
+.inpType:focus{	
+	box-shadow: 0 0 4px 4px #d9d9d9;
+}
+
+.btnAddNew{
+	margin-top: 20px;
+}
