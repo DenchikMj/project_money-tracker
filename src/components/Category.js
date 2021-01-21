@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../css/category_styles.css";
-import ic from '../icons/category/food_light.png';
+/*import ic from '../icons/category/food_light.png';*/
 import menu from '../icons/menu.png';
 
 class Category extends Component {
@@ -17,11 +17,12 @@ class Category extends Component {
 
 
     render() {
-        console.log(this.props);
+        
+        /*console.log (`after: ${this.props.cat.icon}`)*/
         return (
             <div className='categoryRow'>
                 <div className='category'>
-                    <img className='icon' src={ic} alt='icon' />
+                    <img className='icon' src={this.props.cat.icon} alt='icon' />
                     <div className='name'>
                         <p>{this.props.cat.name}</p>
                     </div>

@@ -3,31 +3,37 @@ import "../css/category_styles.css";
 import Category from './Category.js';
 import CategoruPageHeader from './CategoryPageHeader';
 import CategoryTableTitle from './CategoryTableTitle';
-
 import AddCategory from './AddCategory';
 
 
 class ShowCategoryPage extends Component {
 
-    state = {
-        categories: []
+    constructor(props) {
+        super(props);
+        this.state = {categories: this.updateDataFromStorage()}
+    }
+   
+
+    updateLocalStorage = () => {
+        const local=window.localStorage;
+        const table = JSON.stringify (this.state.categories);
+        localStorage.setItem('categoryTable', table);
+        console.log(local); 
     }
 
-
-    createIdGenerator = function () {
-        let count = 1;
-        return function () {
-            return count++
-        }
+    updateDataFromStorage = () => {
+        let data = JSON.parse(localStorage.getItem('categoryTable'));
+        if(data === null) {data = []}
+        return data
     }
 
     addDataCategory = data => {
         this.setState({ categories: this.state.categories.concat(data) });
-        /*console.log(this.state.categories)*/
+        this.updateLocalStorage();
     }
 
     render() {
-
+      
         return (
             <div className="Page">
                 <CategoruPageHeader />
@@ -35,10 +41,12 @@ class ShowCategoryPage extends Component {
                 <div className='catTable'>
                     {this.state.categories.map((category, id) => <Category cat={category} key={category.id} />)}
                 </div>
-                <AddCategory getID={this.createIdGenerator()} addData={this.addDataCategory} />
+                <AddCategory addData={this.addDataCategory} />
             </div>
         );
     }
 }
 
 export default ShowCategoryPage;
+
+// <AddCategory getID={this.createIdGenerator()} addData={this.addDataCategory} />
