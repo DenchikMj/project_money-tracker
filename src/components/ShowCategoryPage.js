@@ -49,4 +49,3 @@ class ShowCategoryPage extends Component {
 
 export default ShowCategoryPage;
 
-// <AddCategory getID={this.createIdGenerator()} addData={this.addDataCategory} />

@@ -3,17 +3,7 @@ import "../css/category_styles.css";
 /*import ic from '../icons/category/food_light.png';*/
 import menu from '../icons/menu.png';
 
-class Category extends Component {
-
-    /*state = {
-        id: '',
-        type: '',
-        icon: ic, //url
-        iconColor: '',
-        name: '',
-        description: ''
-    }*/
-
+class Category extends Component {  
 
 
     render() {

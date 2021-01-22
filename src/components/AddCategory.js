@@ -1,43 +1,24 @@
 import React, { Component } from "react";
 import "../css/category_styles.css";
 import ic from '../icons/category/food_light.png';
-
 class AddCategory extends Component {
 
     state = {
         id: '',
-        type: '',
+       /* type: '',*/
         icon: '', //url
         iconColor: '',
         name: '',
         description: ''
-    }
-
-    createIdGenerator = function () {
-        let count = 1;
-        return function () {
-            return count++
-        }
-    }
-
-    getID = () => {         
-        return this.createIdGenerator()
-    }
+    }    
 
     setInformation = async (e) => {
         e.preventDefault();
         await this.setState({ name: e.target.elements.name.value });
-        await this.setState({ description: e.target.elements.description.value });        
-       /*console.log((this.getID)());
-       console.log(this.getID());*/
-      /*console.log(getID());*/
-      const currentID=this.getID()
-        await this.setState({ id: this.currentID})
-        await this.setState({ type: e.target.elements.type.value })
-        /*await this.setState({ icon: {ic}})*/
-        /*console.log(`before: ${this.state.icon}`)*/
-       /* console.log(this.state.description);*/
-       console.log(currentID);
+        await this.setState({ description: e.target.elements.description.value });       
+        await this.setState({ id: Date.now()})
+        /*await this.setState({ type: e.target.elements.type.value })*/        
+       console.log(this.state.id);
         this.props.addData(this.state);
         e.target.elements.name.value = '';
         e.target.elements.description.value = '';
@@ -49,14 +30,7 @@ class AddCategory extends Component {
         return (
             <div>
                 <form className='addCategory' onSubmit={this.setInformation}>
-                    <h2>New category</h2>
-                    <div className='categoryType'>
-                        <p>select type:</p>
-                        <select className='inpType' name="type" id="type">
-                            <option value="income">income</option>
-                            <option value="charges">charges</option>
-                        </select>
-                    </div>
+                    <h2>New category</h2>                    
 
                     <div className='categoryName'>
                         <p>name:</p>
@@ -76,3 +50,11 @@ class AddCategory extends Component {
 }
 
 export default AddCategory;
+
+/*<div className='categoryType'>
+                        <p>select type:</p>
+                        <select className='inpType' name="type" id="type">
+                            <option value="income">income</option>
+                            <option value="charges">charges</option>
+                        </select>
+                    </div>*/
