@@ -20,6 +20,12 @@ class AddCategory extends Component {
 
     getIconURL = (name) => {
         return `../icons/category/${name}.png`;
+    }
+
+     updateDataFromStorage = () => {
+        let data = JSON.parse(localStorage.getItem('categoryTable'));        
+        if(data === null) {data = []};
+        return data
     }   
 
     setInformation = async (e) => {
@@ -27,17 +33,15 @@ class AddCategory extends Component {
         await this.setState({name: e.target.elements.name.value });
         await this.setState({description: e.target.elements.description.value });       
         await this.setState({id: Date.now()})
-        await this.setState({icon: e.target.elements.icon.value})
-        console.log(e.target.elements.icon.value)
-        /*await this.setState({ type: e.target.elements.type.value })*/        
-       /*console.log(this.state.id);*/
-      /* const cathegoryIcon = this.getIconURL('food_light');
-       console.log(cathegoryIcon);
-       await this.setState({icon: cathegoryIcon});*/
-       /*console.log(this.state.icon);*/
-        this.props.addData(this.state);
+        await this.setState({icon: e.target.elements.icon.value});        
+       let table = this.updateDataFromStorage();
+       console.log(table);       
+       table.push(this.state);       
+       localStorage.setItem('categoryTable', JSON.stringify(table));
+        //this.props.addData(this.state);
         e.target.elements.name.value = '';
         e.target.elements.description.value = '';
+        window.location.replace(`http://localhost:3000/categories`);
     };
 
     addData = () => { };

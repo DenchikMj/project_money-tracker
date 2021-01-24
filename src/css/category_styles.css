@@ -23,10 +23,11 @@
 .btnAdd,
 .btnAddNew{
 	display: block;
-	width: 115px;
+	width: 150px;
 	padding: 10px 0;	
 	font-size: 20px;	
-	text-align: center;	
+	text-align: center;
+	text-decoration: none;	
 	background-color: #80bfff;	
 	color: #f2f2f2;
 	border: none;
@@ -59,14 +60,6 @@
 	align-items: center;
 }
 
-/*.icon{
-	width: 40px;
-	height: 40px;
-	padding: 2px;
-	background-color: pink;
-	border-radius: 50%;
-}*/
-
 .name{	
 	padding-left: 20px;
 	text-align: left;
@@ -77,8 +70,7 @@
 .descriptionTitle{
 	width: 50%;
 	padding-left: 20px;
-	text-align: left;
-	
+	text-align: left;	
 }
 
 .btnAction{	
@@ -118,8 +110,7 @@
 }
 
 .inpName,
-.inpDescr,
-.inpType{
+.inpDescr{
 	width: 250px;
 	padding: 10px;
 	font-size: 16px;
@@ -129,35 +120,13 @@
 }
 
 .inpName:focus,
-.inpDescr:focus
-.inpType:focus{	
+.inpDescr:focus{	
 	box-shadow: 0 0 4px 4px #d9d9d9;
 }
 
 .btnAddNew{
 	margin-top: 20px;
 }
-
-/*.iconContainer{
-	width: 200px;
-	margin: 0 auto;
-	padding: 5px 0;
-	display: flex;	
-}
-.listIcons{
-	width: 100%;
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-}
-.blockIcon{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	width: 25%;
-}*/
-
 .iconList{
 
 }

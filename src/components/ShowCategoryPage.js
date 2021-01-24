@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../css/category_styles.css";
 import Category from './Category.js';
-import CategoruPageHeader from './CategoryPageHeader';
-import CategoryTableTitle from './CategoryTableTitle';
 import AddCategory from './AddCategory';
 import { BrowserRouter as Router, Link, NavLink, Route } from "react-router-dom";
 
@@ -26,23 +24,25 @@ class ShowCategoryPage extends Component {
         let data = JSON.parse(localStorage.getItem('categoryTable'));
         if(data === null) {data = []}
         return data
-    }
+    }   
 
-    addDataCategory = data => {
-        this.setState({ categories: this.state.categories.concat(data) });
-        this.updateLocalStorage();
-    }
-
-    render() {
-      
-        return (
-            <div className="Page">
-                <CategoruPageHeader />
-                <CategoryTableTitle />
+    render() {      
+        return (            
+            <div className="Page">                
+                <div className='pageHeader'>
+                    <h1 className='pageTitle'>categories</h1>                
+                    <Link className= 'btnAdd' to='/categories/AddCategory'>
+                            add category
+                     </Link>
+                </div>                
+                <div className='titleRow'>
+                    <div className='categoryTitle'>category</div>
+                    <div className='descriptionTitle'>description</div>
+                    <div className='actionTitle'>action</div>
+                </div>
                 <div className='catTable'>
                     {this.state.categories.map((category, id) => <Category cat={category} key={category.id} />)}
-                </div>
-                <AddCategory addData={this.addDataCategory} />
+                </div>                
             </div>
         );
     }
