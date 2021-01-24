@@ -48,17 +48,9 @@ class Main extends Component {
                         <Route path="/categories" exact>
                             <ShowCategoryPage />
                         </Route>
-
                         <Route path="/categories/AddCategory" exact>
                             <AddCategory />
                         </Route>
-
-                        
-                            
-                        
-
-
-
                         <Route path="/settings">
                             <Settings />
                         </Route>

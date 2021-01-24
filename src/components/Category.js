@@ -7,12 +7,11 @@ class Category extends Component {
 
 
     render() {        
-        /*console.log (this.props.cat.icon)*/
+        const style={backgroundColor: this.props.cat.color}
         return (
             <div className='categoryRow'>
-                <div className='category'>
-                   
-                    <img className='icon' src={this.props.cat.icon} alt='icon' />
+                <div className='category'>                   
+                    <img className='iconImg' src={this.props.cat.icon} alt='icon' style={style} />
                     <div className='name'>
                         <p>{this.props.cat.name}</p>
                     </div>
