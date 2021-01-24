@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Charts from './Charts';
 import ShowCategoryPage from './ShowCategoryPage';
+import IconList from './IconList';
 import Settings from './Settings';
 import TabSwich from './TabSwich';
 import Balans from './Balans';
@@ -44,9 +45,20 @@ class Main extends Component {
                         <Route path="/charts">
                             <Charts />
                         </Route>
-                        <Route path="/categories">
+                        <Route path="/categories" exact>
                             <ShowCategoryPage />
                         </Route>
+
+                        <Route path="/categories/IconList" exact>
+                            <IconList />
+                        </Route>
+
+                        
+                            
+                        
+
+
+
                         <Route path="/settings">
                             <Settings />
                         </Route>

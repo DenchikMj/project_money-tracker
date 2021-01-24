@@ -4,6 +4,7 @@ import Category from './Category.js';
 import CategoruPageHeader from './CategoryPageHeader';
 import CategoryTableTitle from './CategoryTableTitle';
 import AddCategory from './AddCategory';
+import { BrowserRouter as Router, Link, NavLink, Route } from "react-router-dom";
 
 
 class ShowCategoryPage extends Component {
@@ -18,7 +19,7 @@ class ShowCategoryPage extends Component {
         const local=window.localStorage;
         const table = JSON.stringify (this.state.categories);
         localStorage.setItem('categoryTable', table);
-        console.log(local); 
+        
     }
 
     updateDataFromStorage = () => {
