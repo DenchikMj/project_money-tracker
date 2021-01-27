@@ -1,108 +1,55 @@
-
 import React, { Component } from 'react';
 import '../css/style-project.css';
 
-// const categories = [{
-//     category: 'Food',
-//     description: 'Dinner with John',
-//     date: '26/12/2019',
-//     money: '$13.00'
-//   },
-//   {
-//     category: 'Clothes',
-//     description: '',
-//     date: '23/12/2019',
-//     money: '$26.10'
-//   }
-// ];
-
-
 class TableWiev extends Component {
-
 
     constructor(props) {
         super(props);
         this.state = {
             categories: props.data,
-            category: '',
-            //desc: '',
-            //date: '',
-            // money: ''
+            money: '',
+            value: '',
         };
 
-        this.handleChangeCategory = this.handleChangeCategory.bind(this);
-        // this.handleChangeDescription = this.handleChangeDescription.bind(this);
-        // this.handleChangeDate = this.handleChangeDate.bind(this);
-        // this.handleChangeMoney = this.handleChangeMoney.bind(this);
-
-        this.addCategory = this.addCategory.bind(this);
+        this.handleChangeMoney = this.handleChangeMoney.bind(this);
+        this.handleChangeSelect = this.handleChangeSelect.bind(this);
+        this.addMoneyToCategory = this.addMoneyToCategory.bind(this);
     }
 
-    // state = {
-    //     categories: categories,
-    //     value: ''
-    //   };
-
-    handleChangeCategory(e) {
-        this.setState({ category: e.target.value });
+    componentDidMount() {
+        this.setState({value: this.state.categories[0].id, money: '0'});
     }
-    // handleChangeDescription(e){
-    //     this.setState({desc: e.target.value});
-    // }
-    // handleChangeDate(e){
-    //     this.setState({date: e.target.value});
-    // }
-    // handleChangeMoney(e){
-    //     this.setState({money: e.target.value});
-    // }
 
-    addCategory = () => {
-        this.setState({ categories: [...this.state.categories, { category: this.state.category }] });
+    handleChangeMoney(e) {
+        this.setState({ money: e.target.value});
     }
-    // addDescription = () => {
-    //     this.setState({categories: [...this.state.categories, {description: this.state.desc}]});
-    // }
-    // addDate = () => {
-    //     this.setState({categories: [...this.state.categories, {date: this.state.date}]});
-    // }
-    // addMoney = () => {
-    //     this.setState({categories: [...this.state.categories, {money: this.state.money}]});
-    // }
-
+    handleChangeSelect(e) {
+        this.setState({value: Number(e.target.value)});
+    }
+    
+    addMoneyToCategory = () => {
+        let currentValue = this.state.categories.find(el => el.id === this.state.value);
+        const filteredCat = this.state.categories.filter(item => item.id !== this.state.value)
+        const newData = {...currentValue, money: `$${this.state.money}`};
+        this.setState({ categories: [...filteredCat, newData ]});
+    }
 
     render() {
 
         return (
             <div>
                 <div>
-                    <form>
+                    <form name='form'>
                         <p>
                             <label>{this.props.typeWiev}
-                                <input type="text" value={this.state.category} onChange={this.handleChangeCategory}></input>
+                                <input type="text" onChange={this.handleChangeMoney}></input>
+                                <select value={this.state.value} onChange={(e) => this.handleChangeSelect(e)}>{this.state.categories.map((item) => 
+                                <option key={item.id} value={item.id}>{item.category}</option>)}</select>
                             </label>
-                            <button type="button" onClick={this.addCategory}>Add</button>
+                            <button type="button" onClick={this.addMoneyToCategory}>Add</button>
                         </p>
-                        {/* <p>
-                    <label>Description
-                        <input type="text" value={this.state.desc} onChange={this.handleChangeDescription}></input>
-                    </label>
-                    <button type="button" onClick={this.addDescription}>Add</button>
-                </p>
-                <p>
-                    <label>Category
-                        <input type="text" value={this.state.value} onChange={this.handleChange}></input>
-                    </label>
-                    <button type="button" onClick={this.addItem}>Add</button>
-                </p>
-                <p>
-                    <label>Category
-                        <input type="text" value={this.state.value} onChange={this.handleChange}></input>
-                    </label>
-                    <button type="button" onClick={this.addItem}>Add</button>
-                </p> */}
                     </form>
                 </div>
-
                 <table className="table">
                     <thead>
                         <tr>
@@ -117,16 +64,16 @@ class TableWiev extends Component {
                             return (
                                 <tr>
                                     <td>
-                                        <div className='category'>{this.state.categories[index].category}</div>
+                                        <div className='category'>{this.state?.categories[index]?.category}</div>
                                     </td>
                                     <td>
-                                        <div className='description'>{this.state.categories[index].description}</div>
+                                        <div className='description'>{this.state?.categories[index]?.description}</div>
                                     </td>
                                     <td>
-                                        <div className='date'>{this.state.categories[index].date}</div>
+                                        <div className='date'>{this.state?.categories[index]?.date}</div>
                                     </td>
                                     <td>
-                                        <div className='money'>{this.state.categories[index].money}</div>
+                                        <div className='money'>{this.state?.categories[index]?.money}</div>
                                     </td>
                                 </tr>
                             );

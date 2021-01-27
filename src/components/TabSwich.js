@@ -1,6 +1,8 @@
 import React from 'react';
 import SelectionEl from './SelectionEl';
 import TableWiev from './TableWiev';
+import TableWievIncomes from './TabWievIncomes';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -9,18 +11,27 @@ import {
 } from "react-router-dom";
 
 const categories = [{
+    id: 1,
     category: 'Food',
     description: 'Dinner with John',
     date: '26/12/2019',
-    money: '$13.00'
+    // money: ''
 },
 {
+    id: 2,
     category: 'Clothes',
     description: '',
     date: '23/12/2019',
-    money: '$26.10'
+    money: ''
 }
 ];
+
+const testIncome = [{
+    type: 'Salary',
+    money: '$2000'
+}]
+
+const categoriesArr = JSON.parse(localStorage.getItem('categoryTable'));
 
 function TabSwich() {
     return (
@@ -31,7 +42,7 @@ function TabSwich() {
                         <NavLink to="/">Charges</NavLink>
                     </div>
                     <div className="tabbar-item">
-                        <NavLink to="/incomes">Incomes</NavLink>
+                        <NavLink to="/incomes" >Incomes</NavLink>
                     </div>
                 </div>
                 <SelectionEl />
@@ -46,7 +57,7 @@ function TabSwich() {
                         <div>
                             <h2>Incomes</h2>
                         </div>
-                        <TableWiev data={categories} typeWiev="Incomes" />
+                        <TableWievIncomes data={testIncome} typeWiev="Incomes" />
                     </Route>
                 </Switch>
             </Router>
