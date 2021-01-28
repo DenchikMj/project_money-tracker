@@ -137,6 +137,10 @@
 .iconList{
 
 }
+
+.colorList{
+	justify-content: center;
+}
 .colorItem,
 .iconItem{
 	display: flex;
@@ -160,16 +164,18 @@
 .iconItem label{
 	width: 40px;
 	height: 40px;
-	padding: 2px;	
+	padding: 2px;
+	background-color: #80bfff;	
 	border-radius: 50%;
 }
 .colorItem input:checked + label{  /*[type=radio]*/
 	width: 42px;
 	height: 42px;
-	/*border: 2px solid #000;*/
-	box-shadow: 0 0 4px 4px #d9d9d9;	
+	border: 2px solid #000099;
+	/*box-shadow: 0 0 4px 4px #737373;*/	
 }
 
 .iconItem input:checked + label{
-	background-color: red;
+	background-color: #000099;
+	border: 2px solid #000099;
 }
