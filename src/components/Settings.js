@@ -38,7 +38,7 @@ class Settings extends Component {
                     <h2>Settings</h2>
 
                     <div className='categoryName'>
-                        <p>name:</p>
+                        <p>name: </p>
                         <input className='inpName' type='text' name='name' defaultValue={this.state.name} />
                     </div>
                     <div className='categoryName'>
