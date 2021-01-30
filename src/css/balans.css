@@ -1,0 +1,26 @@
+.contact-img-profile {
+    width: 40px;
+    height: 40px;
+    display: inline;
+    margin-right: 10px;
+}
+
+.balans-name {
+    display: inline;
+    margin-right: 10px;
+    color: #737373;
+}
+
+.balans-summ {
+    display: inline;
+    margin-right: 10px;
+    
+}
+
+.balans {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px 5px 0px 5px;
+    font-size: 24px;
+}

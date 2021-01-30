@@ -3,25 +3,15 @@ import "../css/category_styles.css";
 import ic from '../icons/category/food_light.png';
 import menu from '../icons/menu.png';
 
-class Category extends Component {
-
-    /*state = {
-        id: '',
-        type: '',
-        icon: ic, //url
-        iconColor: '',
-        name: '',
-        description: ''
-    }*/
+class Category extends Component {  
 
 
-
-    render() {
-        console.log(this.props);
+    render() {        
+        const style={backgroundColor: this.props.cat.color}
         return (
             <div className='categoryRow'>
-                <div className='category'>
-                    <img className='icon' src={ic} alt='icon' />
+                <div className='category'>                   
+                    <img className='iconImg' src={this.props.cat.icon} alt='icon' style={style} />
                     <div className='name'>
                         <p>{this.props.cat.name}</p>
                     </div>

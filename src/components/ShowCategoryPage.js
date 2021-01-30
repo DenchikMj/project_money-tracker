@@ -1,44 +1,52 @@
 import React, { Component } from "react";
 import "../css/category_styles.css";
 import Category from './Category.js';
-import CategoruPageHeader from './CategoryPageHeader';
-import CategoryTableTitle from './CategoryTableTitle';
-
 import AddCategory from './AddCategory';
+import { BrowserRouter as Router, Link, NavLink, Route } from "react-router-dom";
 
 
 class ShowCategoryPage extends Component {
 
-    state = {
-        categories: []
+    constructor(props) {
+        super(props);
+        this.state = {categories: this.updateDataFromStorage()}
+    }
+   
+
+    updateLocalStorage = () => {
+        const local=window.localStorage;
+        const table = JSON.stringify (this.state.categories);
+        localStorage.setItem('categoryTable', table);
+        
     }
 
+    updateDataFromStorage = () => {
+        let data = JSON.parse(localStorage.getItem('categoryTable'));
+        if(data === null) {data = []}
+        return data
+    }   
 
-    createIdGenerator = function () {
-        let count = 1;
-        return function () {
-            return count++
-        }
-    }
-
-    addDataCategory = data => {
-        this.setState({ categories: this.state.categories.concat(data) });
-        /*console.log(this.state.categories)*/
-    }
-
-    render() {
-
-        return (
-            <div className="Page">
-                <CategoruPageHeader />
-                <CategoryTableTitle />
+    render() {      
+        return (            
+            <div className="Page">                
+                <div className='pageHeader'>
+                    <h1 className='pageTitle'>categories</h1>                
+                    <Link className= 'btnAdd' to='/categories/AddCategory'>
+                            add category
+                     </Link>
+                </div>                
+                <div className='titleRow'>
+                    <div className='categoryTitle'>category</div>
+                    <div className='descriptionTitle'>description</div>
+                    <div className='actionTitle'>action</div>
+                </div>
                 <div className='catTable'>
                     {this.state.categories.map((category, id) => <Category cat={category} key={category.id} />)}
-                </div>
-                <AddCategory getID={this.createIdGenerator()} addData={this.addDataCategory} />
+                </div>                
             </div>
         );
     }
 }
 
 export default ShowCategoryPage;
+

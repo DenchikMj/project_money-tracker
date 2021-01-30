@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Charts from './Charts';
 import ShowCategoryPage from './ShowCategoryPage';
+import AddCategory from './AddCategory';
 import Settings from './Settings';
 import TabSwich from './TabSwich';
 import Balans from './Balans';
@@ -16,36 +17,45 @@ import '../css/main.css';
 class Main extends Component {
 
     state = {
-        test: 1
+        test: 1,
     }
+
+    getUserObjFromLocalStorage = () => {
+        let data = JSON.parse(localStorage.getItem('Users'));
+        return data !== null ? data : {};
+    }
+
 
     render() {
         return (
             <div className="main">
                 <Router>
-                    <div className="menu">
+                    <div className="top-menu">
                         <div className="menu-item">
-                            <NavLink to="/">Home</NavLink>
+                            <NavLink className="link-pot-menu" to="/">Home</NavLink>
                         </div>
                         <div className="menu-item">
-                            <NavLink to="/charts">Charts</NavLink>
+                            <NavLink className="link-pot-menu" to="/charts">Charts</NavLink>
                         </div>
                         <div className="menu-item">
-                            <NavLink to="/categories">Categories</NavLink>
+                            <NavLink className="link-pot-menu" to="/categories">Categories</NavLink>
                         </div>
                         <div className="menu-item">
-                            <NavLink to="/settings">Settings</NavLink>
+                            <NavLink className="link-pot-menu" to="/settings">Settings</NavLink>
                         </div>
                     </div>
                     <div className="Balans">
-                        <Balans />
+                        <Balans user={this.getUserObjFromLocalStorage()} balans='0.00' />
                     </div>
                     <Switch>
                         <Route path="/charts">
                             <Charts />
                         </Route>
-                        <Route path="/categories">
+                        <Route path="/categories" exact>
                             <ShowCategoryPage />
+                        </Route>
+                        <Route path="/categories/AddCategory" exact>
+                            <AddCategory />
                         </Route>
                         <Route path="/settings">
                             <Settings />
@@ -55,9 +65,10 @@ class Main extends Component {
                         </Route>
                     </Switch>
                 </Router>
-            </div>
+            </div >
         )
     }
+
 }
 
 export default Main;
