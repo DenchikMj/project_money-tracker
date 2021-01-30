@@ -55,10 +55,9 @@ class Main extends Component {
                         </Route>
                     </Switch>
                 </Router>
-            </div >
+            </div>
         )
     }
-
 }
 
 export default Main;
