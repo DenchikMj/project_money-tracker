@@ -51,12 +51,10 @@ class Main extends Component {
                         <Route path="/charts">
                             <Charts />
                         </Route>
-                        <Route path="/categories" exact>
-                            <ShowCategoryPage />
-                        </Route>
-                        <Route path="/categories/AddCategory" exact>
-                            <AddCategory />
-                        </Route>
+                        <Route path="/categories" exact component={ShowCategoryPage} />
+                           
+                        <Route path="/categories/AddCategory" exact component={AddCategory} />
+                            
                         <Route path="/settings">
                             <Settings />
                         </Route>
@@ -72,3 +70,4 @@ class Main extends Component {
 }
 
 export default Main;
+                         
