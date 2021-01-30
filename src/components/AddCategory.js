@@ -43,7 +43,7 @@ class AddCategory extends Component {
        localStorage.setItem('categoryTable', JSON.stringify(table));       
         e.target.elements.name.value = '';
         e.target.elements.description.value = '';
-        window.location.replace(`http://localhost:3000/categories`);
+        window.location.replace(`/categories`);
     };
     
 
