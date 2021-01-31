@@ -3,6 +3,7 @@ import SelectionEl from './SelectionEl';
 import TableWiev from './TableWiev';
 import TableWievIncomes from './TabWievIncomes';
 
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -50,13 +51,13 @@ function TabSwich() {
                 <Switch>
                     <Route exact path="/">
                         <div>
-                            <h2>Charges</h2>
+                            <h2 >Charges</h2>
                         </div>
                         <TableWiev data={categoriesArr} typeWiev="Charges" />
                     </Route>
                     <Route exact path="/incomes">
                         <div>
-                            <h2>Incomes</h2>
+                            <h2 >Incomes</h2>
                         </div>
                         <TableWievIncomes data={incomesArr} typeWiev="Incomes" />
                     </Route>
