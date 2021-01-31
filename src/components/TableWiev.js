@@ -14,6 +14,7 @@ class TableWiev extends Component {
             description: '',
             date: '',
             value: '',
+            show: false
         };
 
         this.handleChangeMoney = this.handleChangeMoney.bind(this);
@@ -42,7 +43,7 @@ class TableWiev extends Component {
 
         this.clear = this.clear.bind(this);
         this.addInfoToCategory = this.addInfoToCategory.bind(this);
-
+        this.showInput = this.showInput.bind(this);
     }
 
     componentDidMount() {
@@ -71,12 +72,13 @@ class TableWiev extends Component {
 
     addInfoToCategory = () => {
         let currentValue = this.state.categories.find(el => el.id === this.state.value);
-        const filteredCat = this.state.categories.filter(item => item.id !== this.state.value);
+        let filteredCat = this.state.categories.filter(item => item.id !== this.state.value);
         const newData = {...currentValue, money: `$${this.state.money}`, description: this.state.description, date: this.state.date};
         this.setState({ categories: [...filteredCat, newData ]});
         // console.log(this.state.categories)
         // console.log(this.state);
         localStorage.setItem('categoryTable',JSON.stringify( [...filteredCat, newData ]));
+        this.setState({show: false});
     }
 
     sortAZCat = () => {
@@ -158,6 +160,10 @@ class TableWiev extends Component {
         this.setState({categories: prevCat})
     }
 
+    showInput = () => {
+        this.setState({show: true});
+    }
+
     render() {
 
         return (
@@ -165,14 +171,20 @@ class TableWiev extends Component {
                 <div>
                     <form name='form' className='addCategory'>
                         <p>
+
+                            <button className= 'btnAddDesc' type="button" onClick={this.showInput}>Edit</button>
+                            {this.state.show ? 
                             <label className='categoryName'>
                                 <p><input className='inpName' type="text" placeholder='Enter money value' onChange={this.handleChangeMoney}></input></p>
                                 <p><input className='inpName' type="text" placeholder='Enter description' onChange={this.handleChangeDescription}></input></p>
                                 <p><input className='inpName' type="date" placeholder='Choose date' value={this.state.date} onChange={this.handleChangeDate}></input></p>
                                 <p><select className='select' value={this.state.value} onChange={(e) => this.handleChangeSelect(e)}>{this.state.categories.map((item) => 
                                 <option key={item.id} value={item.id}>{item.name}</option>)}</select></p>
+                                <button className= 'btnAddDesc' type="button" onClick={this.addInfoToCategory}>Add</button>
                             </label>
-                            <button className= 'btnAddDesc' type="button" onClick={this.addInfoToCategory}>Add</button>
+                            :
+                            null
+                            }
                         </p>
                     </form>
                 </div>

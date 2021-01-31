@@ -10,6 +10,7 @@ class TableWievIncomes extends Component {
             categories: props.data,
             money: '',
             value: '',
+            show: false
         };
 
         this.handleChangeMoney = this.handleChangeMoney.bind(this);
@@ -26,13 +27,12 @@ class TableWievIncomes extends Component {
         this.filterThousandMore = this.filterThousandMore.bind(this);
 
         this.addMoneyToTypeInc = this.addMoneyToTypeInc.bind(this);
+        this.showInput = this.showInput.bind(this);
+
     }
 
     componentDidMount() {
         this.setState({money: '2500', value: 'Salary Jan.'});
-
-        // let dataInc = JSON.parse(localStorage.getItem('incomesTable'));
-        // if(dataInc === null ){dataInc = [{}]} return dataInc;
     }
 
     handleChangeMoney(e) {
@@ -43,12 +43,14 @@ class TableWievIncomes extends Component {
         this.setState({value: e.target.value});
     }
     
-    addMoneyToTypeInc = (e) => {
-        e.preventDefault();
+    addMoneyToTypeInc = () => {
         const newData = {type: this.state.value, money: `$${this.state.money}`};
+        // console.log(this.state.value);
         this.setState({ categories: [...this.state.categories, newData ]});
+        // console.log(this.state.categories);
         localStorage.setItem('incomesTable',JSON.stringify( [...this.state.categories, newData ]));
-        e.target.value = '';
+        this.setState({show: false});
+
     }
 
     sortAZType = () => {
@@ -90,17 +92,26 @@ class TableWievIncomes extends Component {
         this.setState({categories: prevCatInc})
     }
 
+    showInput = () => {
+        this.setState({show: true});
+    }
+
     render() {
 
         return (
             <div >
                 <div>
                     <form name='form' className='addCategory'>
+                        <p><button className= 'btnAdd' type="button" onClick={this.showInput}>Edit</button></p>
+                        {this.state.show ?
                             <label className='categoryName'>
                                 <p><input className='inpName' type="text" placeholder='Enter salary, like: Salary Jan.' onChange={this.handleChangeTypeInc}></input></p>
                                 <input className='inpName' type="text" placeholder="Enter money, like: 2500" onChange={this.handleChangeMoney}></input>
+                                <p><button className= 'btnAdd' type="button" onClick={this.addMoneyToTypeInc}>Add</button></p>
                             </label>
-                            <p><button className= 'btnAdd' type="button" onClick={this.addMoneyToTypeInc}>Add</button></p>
+                        :
+                        null
+                        }
                     </form>
                 </div>
                 <table className="Page">
