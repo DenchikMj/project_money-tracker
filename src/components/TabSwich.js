@@ -32,6 +32,7 @@ const testIncome = [{
 }]
 
 const categoriesArr = JSON.parse(localStorage.getItem('categoryTable'));
+const incomesArr = JSON.parse(localStorage.getItem('incomesTable',testIncome));        
 
 function TabSwich() {
     return (
@@ -57,7 +58,7 @@ function TabSwich() {
                         <div>
                             <h2>Incomes</h2>
                         </div>
-                        <TableWievIncomes data={testIncome} typeWiev="Incomes" />
+                        <TableWievIncomes data={incomesArr} typeWiev="Incomes" />
                     </Route>
                 </Switch>
             </Router>

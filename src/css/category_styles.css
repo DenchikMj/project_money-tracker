@@ -22,22 +22,56 @@
 	color: #737373;
 	font-size: 18px;
 }
+.underlineRow{
+	width: 800px;
+	/* margin: 0 auto; */
+	/* padding: 5px 0; */
+	/* display: flex; */
+	/* color: #737373; */
+	/* font-size: 20px; */
+	border-top: 1px solid #737373;
+	border-bottom: 1px solid #737373;
+}
 .cat{
 	text-align: left;
-	width: 180px;
+	width: 150px;
+}
+.catHeader{
+	width: 200px;
 }
 .desc{
 	text-align: left;
 	width: 200px;
 }
+.descHeader{
+	width: 250px;
+}
 .date{
 	text-align: left;
-	width: 290x;
+	width: 190x;
+}
+.dateHeader{
+	width:152px;
 }
 .money{
 	text-align: left;
-	width: 150px;
+	width: 110px;
 }
+.moneyInc{
+	text-align: left;
+	width: 400px;
+}
+.moneyHeaderInc{
+	width: 400px;
+}
+.type{
+	text-align: left;
+	width: 380px;
+}
+.typeHeader{
+	width: 400px;
+}
+
 .pageHeader{
 	justify-content: space-between;
 	align-items: center;
@@ -229,4 +263,48 @@
 .iconItem input:checked + label{
 	background-color: #000099;
 	border: 2px solid #000099;
+}
+
+
+
+.dropbtn {
+	background-color: white;
+	color: #737373;
+	padding: 10px;
+	margin-left: 10px;
+	font-size: 10px;
+	border: none;
+	cursor: pointer;
+}
+  
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+  
+.dropdown-content {
+	font-size: 12px;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+  
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+  
+.dropdown-content a:hover {background-color: #f1f1f1}
+  
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+  
+.dropdown:hover .dropbtn {
+	background-color: #d9d9d9;
 }
