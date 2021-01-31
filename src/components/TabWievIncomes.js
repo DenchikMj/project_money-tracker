@@ -30,6 +30,9 @@ class TableWievIncomes extends Component {
 
     componentDidMount() {
         this.setState({money: '2500', value: 'Salary Jan.'});
+
+        // let dataInc = JSON.parse(localStorage.getItem('incomesTable'));
+        // if(dataInc === null ){dataInc = [{}]} return dataInc;
     }
 
     handleChangeMoney(e) {
@@ -40,12 +43,12 @@ class TableWievIncomes extends Component {
         this.setState({value: e.target.value});
     }
     
-    addMoneyToTypeInc = () => {
+    addMoneyToTypeInc = (e) => {
+        e.preventDefault();
         const newData = {type: this.state.value, money: `$${this.state.money}`};
-        console.log(this.state.value);
         this.setState({ categories: [...this.state.categories, newData ]});
-        console.log(this.state.categories);
         localStorage.setItem('incomesTable',JSON.stringify( [...this.state.categories, newData ]));
+        e.target.value = '';
     }
 
     sortAZType = () => {
@@ -131,7 +134,7 @@ class TableWievIncomes extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.categories.map((row, index) => {
+                        {this.state.categories?.map((row, index) => {
                             return (
                                 <tr className='Row'>
                                     <td>

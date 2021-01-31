@@ -33,7 +33,9 @@ const testIncome = [{
 }]
 
 const categoriesArr = JSON.parse(localStorage.getItem('categoryTable'));
-const incomesArr = JSON.parse(localStorage.getItem('incomesTable',testIncome));        
+localStorage.setItem('incomesTable',JSON.stringify(testIncome));        
+
+const incomesArr = JSON.parse(localStorage.getItem('incomesTable'));
 
 function TabSwich() {
     return (
