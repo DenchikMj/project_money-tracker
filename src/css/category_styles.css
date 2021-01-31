@@ -96,17 +96,17 @@
 	justify-content: flex-end;	
 }
 
-.menu{
+.act{
 	width: 30px;
 	height: 30px;	
 }
-.menu:hover{
+.act:hover{
 	width: 40px;
 	height: 40px;
 	background-color: #f2f2f2;
 	outline: 1px solid #e6e6e6;
 }
-.menu:active{
+.act:active{
 	background-color: #e6e6e6;
 	outline: 1px solid #d9d9d9;
 }

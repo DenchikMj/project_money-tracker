@@ -39,7 +39,7 @@ class AddCategory extends Component {
         await this.setState({color: e.target.elements.color.value});                
         let table = this.updateDataFromStorage();              
         table.push(this.state);        
-        localStorage.setItem('categoryTable', JSON.stringify(table));       
+        localStorage.setItem('categoryTable', JSON.stringify(table));        
         e.target.elements.name.value = '';
         e.target.elements.description.value = '';
         this.props.history.push('/categories');       

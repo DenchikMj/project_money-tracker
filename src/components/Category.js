@@ -1,13 +1,20 @@
+import { BrowserRouter as Router, Link} from "react-router-dom";
 import React, { Component } from "react";
 import "../css/category_styles.css";
 import ic from '../icons/category/food_light.png';
 import menu from '../icons/menu.png';
+import edit from '../icons/pencil.png';
+import del from '../icons/delete.png';
 
-class Category extends Component {  
+class Category extends Component {
+
+
 
 
     render() {        
         const style={backgroundColor: this.props.cat.color}
+        const ID = this.props.cat.id;
+        console.log(ID);
         return (
             <div className='categoryRow'>
                 <div className='category'>                   
@@ -20,8 +27,11 @@ class Category extends Component {
                     <p>{this.props.cat.description}</p>
                 </div>
                 <div className='action'>
-                    <button type='button' className='btnAction'>
-                        <img className='menu' src={menu} alt='menu' />
+                    <Link to={`/categories/EditCategory/${this.props.cat.id}`} className='btnAction' >
+                        <img className='act' src={edit} alt='edit' />
+                    </Link>
+                    <button id={this.props.cat.id} type='button' className='btnAction'>
+                        <img className='act' src={del} alt='del' />
                     </button>
                 </div>
             </div>
@@ -31,3 +41,7 @@ class Category extends Component {
 }
 
 export default Category
+
+/*<Link className= 'btnAdd' to='/categories/AddCategory'>
+                            add category
+                     </Link>*/

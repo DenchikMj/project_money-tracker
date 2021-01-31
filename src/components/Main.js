@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Charts from './Charts';
 import ShowCategoryPage from './ShowCategoryPage';
 import AddCategory from './AddCategory';
+import EditCategory from './EditCategory';
 import Settings from './Settings';
 import TabSwich from './TabSwich';
 import Balans from './Balans';
@@ -54,6 +55,7 @@ class Main extends Component {
                         <Route path="/categories" exact component={ShowCategoryPage} />
                            
                         <Route path="/categories/AddCategory" exact component={AddCategory} />
+                        <Route path="/categories/EditCategory/:id" exact component={EditCategory} />
                             
                         <Route path="/settings">
                             <Settings />
