@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/style-project.css';
+// import "../css/category_styles.css";
 
 class TableWievIncomes extends Component {
 
@@ -36,15 +37,15 @@ class TableWievIncomes extends Component {
     render() {
 
         return (
-            <div>
+            <div className='Page'>
                 <div>
                     <form name='form'>
                         <p>
-                            <label>{this.props.typeWiev}
+                            <label className='pageTitle'>{this.props.typeWiev}
                                 <input type="text" placeholder='Enter salary, like: Salary Jan.' onChange={this.handleChangeTypeInc}></input>
                                 <input type="text" placeholder="Enter money, like: 2500" onChange={this.handleChangeMoney}></input>
                             </label>
-                            <button type="button" onClick={this.addMoneyToTypeInc}>Add</button>
+                            <button className= 'btnAdd' type="button" onClick={this.addMoneyToTypeInc}>Add</button>
                         </p>
                     </form>
                 </div>

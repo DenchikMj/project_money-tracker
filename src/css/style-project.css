@@ -48,7 +48,21 @@ td {
 .money {
     min-width: 100px;
 }
-
+.btnAdd,
+.btnAddNew{
+	display: block;
+	width: 150px;
+	padding: 10px 0;	
+	font-size: 20px;	
+	text-align: center;
+	text-decoration: none;	
+	background-color: #80bfff;	
+	color: #f2f2f2;
+	border: none;
+  	border-radius: 10px;
+  	box-shadow: 0 4px #d9d9d9;
+  	cursor: pointer;
+}
 /* .post {
     font-family: 'Hachi Maru Pop', cursive;
     width: 50%;
