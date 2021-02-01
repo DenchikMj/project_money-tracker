@@ -14,7 +14,7 @@ class Category extends Component {
     render() {        
         const style={backgroundColor: this.props.cat.color}
         const ID = this.props.cat.id;
-        console.log(ID);
+        
         return (
             <div className='categoryRow'>
                 <div className='category'>                   
@@ -42,6 +42,3 @@ class Category extends Component {
 
 export default Category
 
-/*<Link className= 'btnAdd' to='/categories/AddCategory'>
-                            add category
-                     </Link>*/
