@@ -24,9 +24,20 @@ class ShowCategoryPage extends Component {
         let data = JSON.parse(localStorage.getItem('categoryTable'));
         if(data === null) {data = []}
         return data
-    }   
+    }
 
-    render() {      
+    deleteCategory= (e) => {        
+        const currentID = e.target.id;               
+        let data = JSON.parse(localStorage.getItem('categoryTable')); 
+        const newData = data.filter((category) => category.id != currentID);      
+        localStorage.setItem('categoryTable', JSON.stringify(newData));
+        this.setState({categories: this.updateDataFromStorage()})
+    }
+
+    
+    render() {
+        
+         
         return (            
             <div className="Page">                
                 <div className='pageHeader'>
@@ -41,7 +52,7 @@ class ShowCategoryPage extends Component {
                     <div className='actionTitle'>action</div>
                 </div>
                 <div className='catTable'>
-                    {this.state.categories.map((category, id) => <Category cat={category} key={category.id} />)}
+                    {this.state.categories.map((category, id) => <Category  cat={{deleteCategory: this.deleteCategory, prop: category}} key={category.id} />)}
                 </div>                
             </div>
         );
@@ -49,4 +60,6 @@ class ShowCategoryPage extends Component {
 }
 
 export default ShowCategoryPage;
+
+//changeState={this.changeState}
 

@@ -5,7 +5,7 @@ import clothes from '../icons/category/clothes_light.png';
 import medicine from '../icons/category/medicine.png';
 import rest from '../icons/category/rest_light.png';
 import IconList from './IconList';
-import { BrowserRouter as Router, Link, NavLink, Route, useHistory} from "react-router-dom";
+import { BrowserRouter as Router, Link, NavLink, Route} from "react-router-dom";
 
 const icons = [food, clothes, medicine, rest, food, clothes, medicine, rest, food, clothes, medicine, rest, food, clothes, medicine, rest,]
 const color = ['#ff8080', '#ff944d', '#ffdb4d', '#c266ff', '#994d00', '#009900', '#0066cc', '#cc3300', '#558000', '#000066']
