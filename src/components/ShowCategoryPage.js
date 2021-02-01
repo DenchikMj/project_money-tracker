@@ -13,11 +13,9 @@ class ShowCategoryPage extends Component {
     }
    
 
-    updateLocalStorage = () => {
-        const local=window.localStorage;
+    updateLocalStorage = () => {        
         const table = JSON.stringify (this.state.categories);
-        localStorage.setItem('categoryTable', table);
-        
+        localStorage.setItem('categoryTable', table);        
     }
 
     updateDataFromStorage = () => {
@@ -35,9 +33,7 @@ class ShowCategoryPage extends Component {
     }
 
     
-    render() {
-        
-         
+    render() {         
         return (            
             <div className="Page">                
                 <div className='pageHeader'>
@@ -61,5 +57,5 @@ class ShowCategoryPage extends Component {
 
 export default ShowCategoryPage;
 
-//changeState={this.changeState}
+
 

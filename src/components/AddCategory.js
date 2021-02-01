@@ -4,23 +4,19 @@ import food from '../icons/category/food_light.png';
 import clothes from '../icons/category/clothes_light.png';
 import medicine from '../icons/category/medicine.png';
 import rest from '../icons/category/rest_light.png';
-import airplane from '../icons/category/airplane.png';
 import basket from '../icons/category/basket.png';
 import cake from '../icons/category/cake.png';
-import car from '../icons/category/car.png';
 import children from '../icons/category/children.png';
 import coffee from '../icons/category/coffee.png';
 import money from '../icons/category/money.png';
 import music from '../icons/category/music.png';
 import house from '../icons/category/house.png';
 import oil from '../icons/category/oil.png';
-import saving from '../icons/category/saving.png';
 import sport from '../icons/category/sport.png';
 import ship from '../icons/category/ship.png';
-import pet from '../icons/category/pet.png';
 import { BrowserRouter as Router, Link, NavLink, Route} from "react-router-dom";
 
-const icons = [food, clothes, medicine, rest, airplane, basket, cake, car, children, coffee, money, music, house, oil, saving, sport, ship, pet]
+const icons = [food, clothes, medicine, rest, basket, cake, children, coffee, money, music, house, oil, sport, ship]
 const color = ['#ff8080', '#ff944d', '#ffdb4d', '#c266ff', '#994d00', '#009900', '#0066cc', '#cc3300', '#558000', '#000066']
 
 class AddCategory extends Component {
@@ -33,9 +29,9 @@ class AddCategory extends Component {
         description: ''
     }
 
-    getIconURL = (name) => {
+   /* getIconURL = (name) => {
         return `../icons/category/${name}.png`;
-    }
+    }*/
 
      updateDataFromStorage = () => {
         let data = JSON.parse(localStorage.getItem('categoryTable'));        
